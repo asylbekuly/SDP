@@ -1,13 +1,52 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.FormatFlagsConversionMismatchException;
 
-import java.util.Scanner;
+class FoodProduct implements inter {
+    public double price;
 
-public class Main {
+    public FoodProduct(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public double discountPrice() {
+        return price*0.1;
+    }
+
+}
+
+class ElectronicsProduct implements inter{
+    public double price;
+
+    public ElectronicsProduct(double price) {
+        this.price = price;
+    }
+
+    @Override
+    public double discountPrice() {
+        return price * 0.05;
+    }
+}
+class ClothingProduct implements inter{
+    public double price;
+    public ClothingProduct(double price){
+        this.price=price;
+    }
+    @Override
+    public double discountPrice() {
+        return price * 0.2;
+    }
+}
+
+
+
+class Main {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int rana = in.nextInt();
-        System.out.println(rana);
+        inter Food = new FoodProduct(100);
+        inter Electro = new ElectronicsProduct(100);
+        inter Clothing = new ClothingProduct(100);
+        System.out.println("Food product discount: " + Food.discountPrice());
+        System.out.println("Electro product discount: " + Electro.discountPrice());
+        System.out.println("Clothing product discount: "+ Clothing.discountPrice());
 
     }
 }
